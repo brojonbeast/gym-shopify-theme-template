@@ -891,12 +891,20 @@ p:last-child { margin-bottom: 0; }
 .pt-faq {
   margin-top: 3rem;
   max-width: 800px;
+  margin-inline: auto;
 }
 
 .memberships-faq__heading,
 .pt-faq__heading {
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.faq-list,
+.faq-question,
+.faq-answer {
+  text-align: left;
 }
 
 .faq-list {
