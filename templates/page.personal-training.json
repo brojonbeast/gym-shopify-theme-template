@@ -1,18 +1,1 @@
-{
-  "sections": {
-    "pt": {
-      "type": "pt-services",
-      "settings": {
-        "heading": "Personal Training",
-        "subheading": "Expert coaching built around you — 1-on-1 and semi-private sessions inside Compound's private facility.",
-        "free_intro_label": "Free 1-Hour Intro Session",
-        "cta_label": "Get In Touch",
-        "cta_url": "#pt-contact",
-        "show_process": true,
-        "show_trainer": true,
-        "show_faq": true
-      }
-    }
-  },
-  "order": ["pt"]
-}
+{"sections":{"pt":{"type":"pt-services","settings":{"seo_title":"","seo_description":"","heading":"Personal Training","heading_level":"h1","subheading":"Expert coaching built around you — 1-on-1 and semi-private sessions inside Compound's private facility.","free_intro_label":"","cta_label":"Get In Touch","cta_url":"#pt-contact","show_process":true,"show_trainer":false,"trainer_name":"Your Trainer Name","trainer_credentials":"NSCA-CSCS · Powerlifting Coach · 10+ Years","trainer_bio":"A no-nonsense, data-driven approach to coaching. Whether you're chasing strength records or reshaping your body, every session is built around measurable progress — not guesswork.","trainer_years":"10+","trainer_clients":"200+","trainer_cert":"NSCA","show_faq":true}}},"order":["pt"]}
