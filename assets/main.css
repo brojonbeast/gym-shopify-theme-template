@@ -547,7 +547,7 @@ p:last-child { margin-bottom: 0; }
 /* ── Hero ───────────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  background-color: var(--color-primary);
+  background-color: #111111;
   background-image: var(--hero-bg);
   background-size: cover;
   background-position: center;
