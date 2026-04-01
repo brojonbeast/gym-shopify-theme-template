@@ -1,56 +1,125 @@
-# Compound Gym Replit Theme
+# Gym Shopify Theme Template
 
-A custom Shopify theme built for **Compound Gym** (7523 South Fwy, Houston, TX 77021) — a private strength and performance facility selling memberships, day passes, and personal training.
+A clean, dark Shopify theme built for gyms and fitness brands. Bold black background with a lime green accent, fully SEO-optimized, system fonts only, and easy to rebrand for any new client.
+
+> Built with Shopify Online Store 2.0 (JSON templates). No build tools required — edit files directly.
 
 ---
 
-## Theme Overview
+## Design Defaults
 
-| Feature | Detail |
+| Property | Value |
 |---|---|
-| Theme name | Compound Gym Replit Theme |
-| Shopify OS | Online Store 2.0 (JSON templates) |
-| Typography | System fonts only — no external requests |
-| Button radius | 3px |
-| Schema markup | GymOrHealthClub, Product, Service, BreadcrumbList |
-| SEO | Canonical URLs, Open Graph, Twitter Card, one H1/page |
+| Background | `#0a0a0a` |
+| Surface | `#161616` |
+| Accent color | `#c8ff00` (lime green) |
+| Heading text | `#ffffff` |
+| Body text | `#e0e0e0` |
+| Subtext | `#888888` |
+| Border | `#2c2c2c` |
+| Button text | `#0a0a0a` |
+| Header background | `#0f0f0f` |
+| Button radius | `3px` |
+| Fonts | System fonts (no external font requests) |
+
+All colors are set in `config/settings_data.json` and can be overridden in the Shopify Theme Editor.
 
 ---
 
-## Step 1: Push to GitHub
+## Sections Included
 
-1. Create a new **private** repository on GitHub (e.g. `compound-gym-shopify-theme`).
-2. Push the contents of the `shopify-gym-theme/` directory to that repository's **main branch**. The repository root should contain the `assets/`, `config/`, `layout/`, etc. folders directly.
+| Section | Description |
+|---|---|
+| `hero.liquid` | Full-screen hero with background image, headline, and CTA button |
+| `gym-highlights.liquid` | Zone cards — full-bleed portrait image cards with lime badge, gradient overlay, white text |
+| `memberships-pricing.liquid` | Membership tier pricing cards |
+| `day-passes.liquid` | Day pass options |
+| `pt-services.liquid` | Personal training page with contact form, trainer profile, and FAQ |
+| `about-story.liquid` | Gym story / about section |
+| `apparel-grid.liquid` | Merchandise/apparel product grid |
+| `contact-info.liquid` | Location, hours, and contact details with Google Maps embed |
+| `google-reviews.liquid` | Google Reviews widget embed (app-based) |
+| `announcement-bar.liquid` | Top-of-page announcement strip |
+| `header.liquid` | Sticky header with nav and logo |
+| `footer.liquid` | Footer with links and address |
 
-```bash
-cd shopify-gym-theme
-git init
-git remote add origin https://github.com/YOUR_USERNAME/compound-gym-shopify-theme.git
-git add .
-git commit -m "Initial theme"
-git push -u origin main
+---
+
+## Reusing This for a New Client
+
+### 1. Fork or duplicate this repo
+
+Click **Use this template** on GitHub to create a fresh repo for the new client.
+
+### 2. Find and replace the gym's details
+
+Do a global find-and-replace across all files for these placeholders:
+
+| Replace | With |
+|---|---|
+| `[GYM NAME]` | e.g. `Iron House Gym` |
+| `[GYM ADDRESS]` | e.g. `1200 Main St` |
+| `[GYM CITY, STATE ZIP]` | e.g. `Austin, TX 78701` |
+| `[GYM PHONE]` | e.g. `(512) 555-0100` |
+| `[GYM EMAIL]` | e.g. `info@ironhousegym.com` |
+
+### 3. Swap brand colors
+
+Open `config/settings_data.json` and update the color values, or change them in the Shopify Theme Editor under **Theme Settings → Colors** after connecting.
+
+To change the accent from lime green to another color, update `#c8ff00` in `assets/main.css` and `config/settings_data.json`.
+
+### 4. Replace the logo
+
+Upload the new gym's logo in the Theme Editor under **Header → Logo image**, or update the logo reference in `layout/theme.liquid`.
+
+### 5. Replace zone / facility photos
+
+The gym highlights section uses 6 portrait zone images. Replace them in the Theme Editor under **Gym Highlights → Zone Cards**.
+
+Recommended image size: **800 × 1000px** (4:5 portrait ratio).
+
+### 6. Update membership & pricing
+
+Edit `sections/memberships-pricing.liquid` and `sections/day-passes.liquid` with the new gym's pricing tiers, descriptions, and sign-up links.
+
+### 7. Update the SEO snippet
+
+Open `snippets/seo-head.liquid` and update:
+
+```liquid
+{% assign seo_title = "Gym Name | City" %}
+{% assign seo_description = "Short description of the gym." %}
 ```
 
+Also update the `LocalBusiness` JSON-LD structured data block with the correct address, phone, hours, and coordinates.
+
+### 8. Swap favicons
+
+Upload the new gym's favicon to Shopify Files and update the favicon URLs in `layout/theme.liquid`:
+
+```liquid
+<link rel="icon" href="YOUR_FAVICON_URL">
+<link rel="apple-touch-icon" href="YOUR_APPLE_TOUCH_ICON_URL">
+```
+
+### 9. Connect to Shopify
+
+1. Go to **Shopify Admin → Online Store → Themes**
+2. Click **Add theme → Connect from GitHub**
+3. Authorize Shopify's GitHub integration, then select your new repo and the `main` branch
+4. Click **Connect**, then **Publish** when ready
+
+> Once connected, any changes in the Theme Editor will automatically push to GitHub.
+
 ---
 
-## Step 2: Connect GitHub to Shopify
+## Navigation Menus
 
-1. In Shopify Admin, go to **Online Store → Themes**.
-2. Click **Add theme** → **Connect from GitHub**.
-3. Follow the OAuth flow to authorize Shopify's GitHub integration.
-4. Select your repository (`compound-gym-shopify-theme`) and the **main** branch.
-5. Click **Connect**.
-6. Once imported, click **Publish** to make it your live theme, or **Customize** to preview first.
+Create these menus in **Shopify Admin → Navigation**:
 
-> **Note:** Any future pushes to the `main` branch will automatically sync with Shopify within a few minutes.
+### Main Menu (`main-menu`)
 
----
-
-## Step 3: Create Navigation Menus
-
-The theme requires two menus in Shopify Admin → **Navigation**:
-
-### Main Menu (handle: `main-menu`)
 | Title | URL |
 |---|---|
 | Memberships | `/pages/memberships` |
@@ -60,14 +129,15 @@ The theme requires two menus in Shopify Admin → **Navigation**:
 | About | `/pages/about` |
 | Contact | `/pages/contact` |
 
-### Footer Menu (handle: `footer`)
+### Footer Menu (`footer`)
+
 Same links as the main menu, or a subset.
 
 ---
 
-## Step 4: Create Pages with the Right Templates
+## Pages & Templates
 
-Each page must be created in Shopify Admin → **Online Store → Pages** and assigned the correct template:
+Create each page in **Shopify Admin → Online Store → Pages** and assign the correct template from the right sidebar:
 
 | Page Title | URL Handle | Template |
 |---|---|---|
@@ -77,153 +147,53 @@ Each page must be created in Shopify Admin → **Online Store → Pages** and as
 | About | `about` | `page.about` |
 | Contact | `contact` | `page.contact` |
 
-To assign a template in the page editor: on the right sidebar, find **Theme template** and select the correct one from the dropdown.
+---
+
+## Google Reviews Setup
+
+1. Install the **Google Reviews** app from the Shopify App Store
+2. Create a widget in the app and copy the embed code
+3. In Theme Editor → Homepage → **Google Reviews** section, paste the embed code
+4. Save
 
 ---
 
-## Step 5: Create the Apparel Collection
-
-1. Go to **Products → Collections → Create collection**.
-2. Set the title to `Apparel`.
-3. Set the handle to `apparel` (URL: `/collections/apparel`).
-4. The collection will use the `collection.json` template automatically.
-
----
-
-## Step 6: Configure Theme Settings
-
-Go to **Online Store → Themes → Customize** and fill in settings under each section:
-
-### General
-- **Gym Name**: Compound Gym
-- **Logo**: Upload your logo image
-- **Default share image**: Upload an image for social sharing (1200×630 recommended)
-
-### Colors
-Pre-configured with Compound Gym's default palette. Adjust if needed:
-- Primary: `#0a0a0a` (near black)
-- Accent: `#c41e1e` (red)
-- Background: `#ffffff`
-
-### Contact Info
-- **Street address**: 7523 South Fwy
-- **City**: Houston
-- **State**: TX
-- **ZIP**: 77021
-- **Hours**: Open 24/7
-- **Phone / Email**: Add when available
-
-### Google Maps
-The embed URL is pre-configured with the Compound Gym location. To update:
-1. Go to [Google Maps](https://maps.google.com), search for Compound Gym.
-2. Click **Share → Embed a map → Copy HTML**.
-3. Extract only the `src="..."` URL from the `<iframe>` tag.
-4. In Theme Settings → **Google Maps**, paste the URL.
-
-### Social Media
-Add your Instagram, Facebook, TikTok, and YouTube URLs.
-
----
-
-## Step 7: Configure Google Reviews App
-
-The theme includes a `google-reviews` section on the homepage that hosts the embed widget from the **Google Reviews app by Omega Commerce**.
-
-### To configure:
-1. Install the **Google Reviews** app from the Shopify App Store.
-2. In the app, create a widget and copy the **embed code**.
-3. In Shopify → **Online Store → Themes → Customize**.
-4. On the homepage, find the **"Google Reviews"** section.
-5. Paste the embed code into the **"Google Reviews widget embed code"** field.
-6. Click **Save**.
-
----
-
-## Step 8: Assign Template to Personal Training Page
-
-The Personal Training page has a built-in contact form, process steps, trainer profile, and FAQ. To configure the trainer profile:
-
-1. In **Customize → Personal Training page** (make sure you're on the `/pages/personal-training` page).
-2. Find the **Personal Training** section.
-3. Under **Trainer Profile**: upload a photo, enter trainer name, credentials, bio, years coaching, and clients trained.
-4. Toggle the **Show process steps**, **Show trainer profile**, and **Show FAQ** checkboxes as needed.
-
----
-
-## GymMaster Membership Signup
-
-The membership and day pass CTAs link directly to the GymMaster portal:
-- **Monthly**: `https://compoundgym.gymmasteronline.com/portal/signup/details/ad5acee646af8e593628728d9e3d83a4`
-- **6-Month**: `https://compoundgym.gymmasteronline.com/portal/signup/details/cfa0a4024b7035e8d0fc042f6b821c47`
-- **Annual**: `https://compoundgym.gymmasteronline.com/portal/signup/details/9bf612326405e7ba7949bb88aa20a881`
-
-These links can be updated in `sections/memberships-pricing.liquid` and `sections/day-passes.liquid` if the GymMaster portal URLs change.
-
----
-
-## Theme Structure
+## File Structure
 
 ```
-shopify-gym-theme/
 ├── assets/
-│   ├── main.css          # All theme styles (system fonts, 3px radius, no glass)
-│   └── main.js           # Mobile menu, thumbnails, smooth scroll — no dependencies
+│   ├── main.css              # All custom styles
+│   └── main.js               # Mobile menu, smooth scroll — no dependencies
 ├── config/
-│   ├── settings_schema.json   # Theme editor settings definitions
-│   └── settings_data.json     # Pre-populated Compound Gym defaults
+│   ├── settings_data.json    # Theme setting values (colors, text, etc.)
+│   └── settings_schema.json  # Theme Editor settings definitions
 ├── layout/
-│   └── theme.liquid      # Master layout: schema.org, OG tags, canonical, fonts
-├── locales/
-│   └── en.default.json   # Translation strings
-├── sections/
-│   ├── announcement-bar.liquid
-│   ├── header.liquid
-│   ├── footer.liquid         # Includes Google Maps embed
-│   ├── hero.liquid
-│   ├── gym-highlights.liquid
-│   ├── memberships-pricing.liquid
-│   ├── day-passes.liquid
-│   ├── pt-services.liquid    # Full PT page: formats, process, trainer, form, FAQ
-│   ├── google-reviews.liquid # App widget placeholder
-│   ├── apparel-grid.liquid
-│   ├── about-story.liquid
-│   ├── contact-info.liquid
-│   ├── main-page.liquid      # Generic page content renderer
-│   └── main-product.liquid   # Product detail with schema
+│   └── theme.liquid          # Master layout: favicons, SEO tags, scripts
+├── sections/                 # All page sections (see table above)
 ├── snippets/
-│   ├── breadcrumbs.liquid    # BreadcrumbList schema + visible nav
-│   ├── price-card.liquid     # Reusable pricing card
-│   ├── trainer-card.liquid   # Trainer profile card
-│   ├── product-card.liquid   # Apparel product card
-│   ├── icon.liquid           # Inline SVG icons
-│   └── social-links.liquid   # Social media link row
-└── templates/
-    ├── index.json
-    ├── page.json             # Generic page fallback
-    ├── page.memberships.json
-    ├── page.passes.json
-    ├── page.personal-training.json
-    ├── page.about.json
-    ├── page.contact.json
-    ├── collection.json
-    ├── product.json
-    ├── cart.liquid
-    └── customers/
-        ├── login.liquid
-        ├── register.liquid
-        └── account.liquid
+│   └── seo-head.liquid       # SEO meta tags + JSON-LD structured data
+├── templates/
+│   └── index.json            # Homepage section order and settings
+└── locales/                  # Translation strings
 ```
 
 ---
 
-## SEO Implementation
+## SEO Features
 
-- **GymOrHealthClub** JSON-LD schema fires on every page (in `layout/theme.liquid`).
-- **BreadcrumbList** schema fires on all inner pages (via `snippets/breadcrumbs.liquid`).
-- **Product** JSON-LD on product pages (in `sections/main-product.liquid`).
-- **ItemList** JSON-LD on collection pages (in `sections/apparel-grid.liquid`).
-- **GymOrHealthClub** with address on the contact page (in `sections/contact-info.liquid`).
-- Canonical URL tag on every page.
-- Open Graph and Twitter Card tags on every page.
-- One H1 per page, enforced by section design.
-- Semantic HTML: `<main>`, `<header>`, `<footer>`, `<nav>`, `<section>`, `<article>`, `<address>`.
+- `GymOrHealthClub` JSON-LD schema on every page
+- `LocalBusiness` structured data with address, phone, hours, and coordinates
+- `BreadcrumbList` schema on inner pages
+- `Product` and `ItemList` schema on product/collection pages
+- Canonical URL, Open Graph, and Twitter Card tags on every page
+- One `H1` per page enforced by section design
+- Semantic HTML throughout (`<main>`, `<header>`, `<footer>`, `<nav>`, `<section>`, `<address>`)
+- System fonts — zero external font requests
+
+---
+
+## Tips
+
+- **No build step** — edit Liquid, CSS, and JSON files directly
+- **Force push if needed** — if GitHub and the Theme Editor get out of sync, run `git pull --rebase` before pushing, or use `--force` if your local version is the source of truth
+- **Accent color** — `#c8ff00` appears in both `main.css` and `settings_data.json`; update both when rebranding
